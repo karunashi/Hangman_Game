@@ -7,7 +7,7 @@
 //5. Have it store pressed keys into another array
 //6. Have it check whether the key pressed was already used (check array), if so show message that it was already used.
 
-var wordBank = ["apple", "orange", "grapes", "pineapple", "mango", "watermelon", "chocolate", "milk", "tea", "coffee", "bread", "steak", "soda"];
+var wordBank = ["apple", "orange", "grapes", "pineapple", "mango", "pulse laser", "chocolate", "milk", "tea", "coffee", "bread", "steak", "soda"];
 var randomWord = "null"; // Placeholder string that will be replaced once the game is initiated, otherwise it'll show "null".
 var randomWordSplit = [];
 var letters = "null"; // Placeholder string that will be replaced once the game is initiated, otherwise it'll show "null".
@@ -98,22 +98,20 @@ function updateShownWord() {
     for (var i = 0; i < letters; i++) {
         if (guesses.indexOf(randomWordSplit[i]) !== -1) {
             shownWord = shownWord + randomWordSplit[i]; 
-
         }
         else {
-        	shownWord = shownWord + "_"
+        	shownWord = shownWord + " _ "
         }
         console.log(shownWord);
     }
-
     document.getElementById('word-blank').innerHTML = shownWord;
-            
-    //	for (var i = 0; i < letters; i++) {
-    //		if (randomWordSplit[i] == userGuess) {
-    //			console.log(userGuess, "Blah Blah Blah");
-    //		}
-    //	}
-    //	document.getElementById('word-blank').innerHTML = rightLetters;
+    if (shownWord == randomWord) {
+        wins++ ;
+        alert("You've won this round!");
+        document.getElementById("win-counter").innerHTML = wins;
+        start()
+
+    }
 }
 
 

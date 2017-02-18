@@ -1,7 +1,7 @@
 # Hangman_Game
 
-## Live Link (If relevant)
- - www.example.com
+## Live Link:
+ - https://karunashi.github.io/Hangman_Game/
 
 ## This hangman game was made to accept any key inputs. User will have 10 chances each round to guess the word correctly. If they do not guess correctly within 10 tries, it will result in a loss. If the user is able to guess the word, it will result in a win. After reaching 10 wins and/or losses, user will be met with a special event shown on their main screen in the interface. Be sure to note, that you will be notified if you press the same letter twice, and no extra chances on guesses will be lost.
 

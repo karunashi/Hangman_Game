@@ -5,13 +5,13 @@
 
 ## This hangman game was made to accept any key inputs. User will have 10 chances each round to guess the word correctly. If they do not guess correctly within 10 tries, it will result in a loss. If the user is able to guess the word, it will result in a win. After reaching 10 wins and/or losses, user will be met with a special event shown on their main screen in the interface. Be sure to note, that you will be notified if you press the same letter twice, and no extra chances on guesses will be lost.
 
-## 1. Choose a theme for your game! In the demo, we picked an 80s theme: 80s questions, 80s sound and an 80s aesthetic. You can choose any subject for your theme, though, so be creative!
-## 2. Use key events to listen for the letters that your players will type.
-## 3. Show the following:
-## - Guesses left
-## - Loss Counter
-## - Win Counter
-## - Underscores for any missing letters needing to be guessed
+### 1. Choose a theme for your game! In the demo, we picked an 80s theme: 80s questions, 80s sound and an 80s aesthetic. You can choose any subject for your theme, though, so be creative!
+### 2. Use key events to listen for the letters that your players will type.
+### 3. Show the following:
+#### - Guesses left
+#### - Loss Counter
+#### - Win Counter
+#### - Underscores for any missing letters needing to be guessed
 
 #### As long as it works like a Hangman, with keyboard as the main input for keys, it should meet the requirements for the assignment. Theme was encouraged, so it was made with some Cyberpunk/Sci-Fi theme to it.
 

@@ -83,7 +83,7 @@ span {
         color: lime;
     }
     to {
-        color: Fuchsia;
+        color: Red;
     }
 }
 
@@ -92,7 +92,7 @@ span {
         color: lime;
     }
     to {
-        color: Fuchsia;
+        color: Red;
     }
 }
 
@@ -101,7 +101,7 @@ span {
         color: lime;
     }
     to {
-        color: Fuchsia;
+        color: Red;
     }
 }
 
@@ -110,7 +110,7 @@ span {
         color: lime;
     }
     to {
-        color: Fuchsia;
+        color: Red;
     }
 }
 
@@ -119,7 +119,7 @@ span {
         color: lime;
     }
     to {
-        color: Fuchsia;
+        color: Red;
     }
 }
 
@@ -136,7 +136,7 @@ p {
         color: MediumBlue;
     }
     to {
-        color: DeepPink;
+        color: DarkGreen;
     }
 }
 
@@ -145,7 +145,7 @@ p {
         color: MediumBlue;
     }
     to {
-        color: DeepPink;
+        color: DarkGreen;
     }
 }
 
@@ -154,7 +154,7 @@ p {
         color: MediumBlue;
     }
     to {
-        color: DeepPink;
+        color: DarkGreen;
     }
 }
 
@@ -163,7 +163,7 @@ p {
         color: MediumBlue;
     }
     to {
-        color: DeepPink;
+        color: DarkGreen;
     }
 }
 
@@ -172,11 +172,13 @@ p {
         color: MediumBlue;
     }
     to {
-        color: DeepPink;
+        color: DarkGreen;
     }
 }
 
-.well,
+.well { 
+	background-color: rgba(245, 245, 245, 0.45)
+}
 .jumbotron {
     background-color: rgba(245, 245, 245, 0.45);
 }

@@ -100,7 +100,7 @@ document.onkeypress = function() { // Used onkeypress instead of keyup to only r
     if (guessesLeft < 0) {
         losses++;
         document.getElementById("loss-counter").innerHTML = losses;
-        alert("You've lost!")
+        alert("You've lost! The answer was " + randomWord)
         document.getElementById("incorrect").src = "assets/media/nuclear.mp3"
         document.getElementById("input").innerHTML = "!Warning! =Weapon of Mass Destruction Detected.= !Warning!"
         start() // Reset game

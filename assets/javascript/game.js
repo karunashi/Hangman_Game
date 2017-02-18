@@ -132,7 +132,7 @@ function updateShownWord() {
 }
 
 function effect() {
-    if (losses == 10) {
+    if (losses == 5) {
         document.getElementById('bgblock').src = "https://www.youtube.com/embed/tkW_EM---5Y?wmode=opaque&VQ=HD1080&autoplay=1&loop=1&controls=0&showinfo=0&autohide=1&playlist=tkW_EM---5Y";
         console.log("You've started an all-out war!");
         alert("Due to major damage you've accumulated from various lost battles, critical intel has been leaked to your foes.");
@@ -144,7 +144,7 @@ function effect() {
         document.getElementById('error0-c').src = "assets/images/error_03.gif";
         document.getElementById("end").src = "assets/media/transmission.mp3"
         document.getElementById("input").innerHTML = "Mission Failed. Detecting multiple hostile signatures. Executing evasive maneuvers."
-    } else if (wins == 10) {
+    } else if (wins == 5) {
         document.getElementById('bgblock').src = "https://www.youtube.com/embed/CHDoaohmvJ8?wmode=opaque&VQ=HD1080&autoplay=1&loop=1&controls=0&showinfo=0&autohide=1&playlist=CHDoaohmvJ8";
         console.log("You've won many battles but...");
         alert("Many battles were hard-fought and won, but a new foe has appeared in the horizon");

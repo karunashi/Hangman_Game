@@ -1,3 +1,15 @@
+var load;
+
+function loading() {
+    load = setTimeout(showPage, 4800);
+}
+
+function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+}
+
+
 // Pseudo Code
 
 //1. Make an array of string for a wordbank
@@ -7,7 +19,7 @@
 //5. Have it store pressed keys into another array
 //6. Have it check whether the key pressed was already used (check array), if so show message that it was already used.
 
-var wordBank = ["apple", "orange", "grapes", "pineapple", "mango", "pulse laser", "chocolate", "milk", "tea", "coffee", "bread", "steak", "soda"];
+var wordBank = ["usa", "japan", "france", "germany", "russia", "india", "china", "mexico", "canada", "chile", "brazil", "spain", "taiwan", "vietnam", "england", "finland", "norway", "poland", "portugal", "italy", "syria", "iran", "iraq", "korea"];
 var randomWord = "null"; // Placeholder string that will be replaced once the game is initiated, otherwise it'll show "null".
 var randomWordSplit = [];
 var letters = "null"; // Placeholder string that will be replaced once the game is initiated, otherwise it'll show "null".
@@ -44,6 +56,7 @@ function start() {
     document.getElementById("guesses-left").innerHTML = guessesLeft; // Changes element to display the amount of lives left in the variable storing how many guesses are remaining.
     document.getElementById("win-counter").innerHTML = wins; // Changes element to show counter of how many wins player has.
     document.getElementById("loss-counter").innerHTML = losses; // Changes element to show counter of how many losses player has.
+    effect()
 }
 
 
@@ -51,62 +64,66 @@ start();
 // Initiates the game
 
 document.onkeypress = function() { // Used onkeypress instead of keyup to only register keys, and avoid it showing unnecessary inputs.
-        var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); // Stores the key that's pressed into a variable and makes sure it's in lowercase.
-        console.log("User has typed ", userGuess); // Check to see that the key input is noted.
-        if (guesses.indexOf(userGuess) === -1) { // If the key input isn't inside the array guesses...
-            guesses.push(userGuess); // Then insert/push the input into the array...
-            console.log(guesses); // And print in console for confirmation.
-            //		replace()
-        } else {
-            console.log("You've already input", userGuess, "Please try another character."); // If it's in the array, guesses, then it will print this instead.
-            return // Stops here if it's already guessed.
-        }
-        var check = false; // Initially set to false for function
-        for (var i = 0; i < guesses.length; i++) {
-            if (randomWordSplit[i] == userGuess) { // If the letter [i] is checked as the input key
-                check = true; // Then mark 'check' as true
-                console.log(check); // Print in console the status to ensure it checks.
-            }
-        }
-        if (check) { // If it's true, (based on matching letter to input key)
-            for (var i = 0; i < letters; i++) {
-                if (randomWordSplit[i] == userGuess) { // Check the right letter index in randomWordSplit with user input..
-                    //      randomWordSplit[i] = gameBlanks[i];
-                    //    !!!!!!IMPORTANT!!!!!!
-                    //      gameBlanks[i] = userGuess // Then it's supposed to push that verified key for the specific gameBlank by replacing the blank index that fits the letter. 
-                    // HOW DO I GET userGuess (INPUT) to go into gameBlanks!!!!
-                }
-            }
-        } else {
-            guessesLeft--;
-            document.getElementById("guesses-left").innerHTML = guessesLeft;
-        }
-        if (guessesLeft < 0) {
-            losses++;
-            document.getElementById("loss-counter").innerHTML = losses;
-            alert("You've lost!")
-            start() // Reset game
-        }
-
-        console.log("You've guessed: ", guesses);
-        updateShownWord();
-        document.getElementById("guesses-made").innerHTML = guesses;
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); // Stores the key that's pressed into a variable and makes sure it's in lowercase.
+    console.log("User has typed ", userGuess); // Check to see that the key input is noted.
+    if (guesses.indexOf(userGuess) === -1) { // If the key input isn't inside the array guesses...
+        guesses.push(userGuess); // Then insert/push the input into the array...
+        console.log(guesses); // And print in console for confirmation.
+        document.getElementById("incorrect").src = "assets/media/laser.mp3"
+        document.getElementById("input").innerHTML = "Data Saved."
+    } else {
+        console.log("You've already input", userGuess, "Please try another character."); // If it's in the array, guesses, then it will print this instead.
+        document.getElementById("correct").src = "assets/media/hit.mp3"
+        document.getElementById("input").innerHTML = "Contact System Administrator."
+        return // Stops here if it's already guessed.
     }
-    // V Jonathan's help (TA) V
+    var check = false; // Initially set to false for function
+    for (var i = 0; i < guesses.length; i++) {
+        if (randomWordSplit[i] == userGuess) { // If the letter [i] is checked as the input key
+            check = true; // Then mark 'check' as true
+            console.log(check); // Print in console the status to ensure it checks.
+        }
+    }
+    if (check) { // If it's true, (based on matching letter to input key)
+        for (var i = 0; i < letters; i++) {
+            if (randomWordSplit[i] == userGuess) { // Check the right letter index in randomWordSplit with user input..
+                //      randomWordSplit[i] = gameBlanks[i];
+                //    !!!!!!IMPORTANT!!!!!!
+                //      gameBlanks[i] = userGuess // Then it's supposed to push that verified key for the specific gameBlank by replacing the blank index that fits the letter. 
+                // HOW DO I GET userGuess (INPUT) to go into gameBlanks!!!!
+            }
+        }
+    } else {
+        guessesLeft--;
+        document.getElementById("guesses-left").innerHTML = guessesLeft;
+    }
+    if (guessesLeft < 0) {
+        losses++;
+        document.getElementById("loss-counter").innerHTML = losses;
+        alert("You've lost!")
+        document.getElementById("incorrect").src = "assets/media/nuclear.mp3"
+        document.getElementById("input").innerHTML = "!Warning! =Weapon of Mass Destruction Detected.= !Warning!"
+        start() // Reset game
+    }
+
+    console.log("You've guessed: ", guesses);
+    updateShownWord();
+    document.getElementById("guesses-made").innerHTML = guesses;
+}
+
 function updateShownWord() {
-	var shownWord = '';
+    var shownWord = '';
     for (var i = 0; i < letters; i++) {
         if (guesses.indexOf(randomWordSplit[i]) !== -1) {
-            shownWord = shownWord + randomWordSplit[i]; 
-        }
-        else {
-        	shownWord = shownWord + " _ "
+            shownWord = shownWord + randomWordSplit[i];
+        } else {
+            shownWord = shownWord + " _ "
         }
         console.log(shownWord);
     }
-    document.getElementById('word-blank').innerHTML = shownWord;
+    document.getElementById('word-blank').innerHTML = shownWord.toUpperCase();
     if (shownWord == randomWord) {
-        wins++ ;
+        wins++;
         alert("You've won this round!");
         document.getElementById("win-counter").innerHTML = wins;
         start()
@@ -114,59 +131,28 @@ function updateShownWord() {
     }
 }
 
+function effect() {
+    if (losses == 10) {
+        document.getElementById('bgblock').src = "https://www.youtube.com/embed/tkW_EM---5Y?wmode=opaque&VQ=HD1080&autoplay=1&loop=1&controls=0&showinfo=0&autohide=1&playlist=tkW_EM---5Y";
+        console.log("You've started an all-out war!");
+        alert("Due to major damage you've accumulated from various lost battles, critical intel has been leaked to your foes.");
+        confirm("With an all-out war now inevitable, do you continue?");
+        document.getElementById('error0-a').src = "assets/images/error_05.gif";
+        document.getElementById('error1-a').src = "assets/images/error_02.gif";
+        document.getElementById('error0-b').src = "assets/images/error_01.gif";
+        document.getElementById('error1-b').src = "assets/images/error_04.gif";
+        document.getElementById('error0-c').src = "assets/images/error_03.gif";
+        document.getElementById("end").src = "assets/media/transmission.mp3"
+        document.getElementById("input").innerHTML = "Mission Failed. Detecting multiple hostile signatures. Executing evasive maneuvers."
+    } else if (wins == 10) {
+        document.getElementById('bgblock').src = "https://www.youtube.com/embed/CHDoaohmvJ8?wmode=opaque&VQ=HD1080&autoplay=1&loop=1&controls=0&showinfo=0&autohide=1&playlist=CHDoaohmvJ8";
+        console.log("You've won many battles but...");
+        alert("Many battles were hard-fought and won, but a new foe has appeared in the horizon");
+        confirm("With another foe before you, do you continue?");
+        document.getElementById("end").src = "assets/media/transmission.mp3"
+        document.getElementById("input").innerHTML = "Mission Accomplished. We're now tasked to continue safeguarding the peace--- Warning! Massive signature detected."
+    } else {
+        console.log("Effect Check [N/A]");
+    }
 
-////// Winnie (TA) sugggested I try to use <Div> that creates and numbers with new classes, and will then create _'s, and then replace with correct letters.
-//function replace() {
-//	for (var i = 0; i < letters; i++) {
-//		if (randomWordSplit.indexOf(i) === userGuess) {
-//			gameBlanks[i].push()
-//			document.getElementById(word-blank).innerHTML =gameBlanks.join(" ")
-//		}
-//	}
-//}
-
-
-
-
-// TO DO:
-// I need to still have it do counters on wins/losses, 
-// also be able to have it so that the letters that 
-// are correct will replace the characters.
-
-////This didn't work, reconfiguration ----VAR002
-/// Referenced from Sunday Session, experimental version
-//for (var i = 0; i < letters; i++) {
-//	if (randomWordSplit[i] === userGuess) {
-//		for (i = 0; i < letters; i++) {
-//			if (randomWordSplit[i] === userGuess) {
-//				//gameBlanks[i] = userGuess
-//			}
-//			else {
-//				guessesLeft --;
-//				guesses.push(userGuess);
-//			}
-//		}
-//	}
-//}
-
-
-////This didn't work (replica of hangman.js) ----VAR001
-/// Referenced from Sunday Session
-//for (var i = 0; i < letters; i++) {
-//	if (randomWordSplit[i] === userGuess) {
-//		console.log(userGuess)
-//		check = true
-//	}
-//
-//		if (check) {
-//			for (i = 0; i < letters; i++) {
-//			if (randomWordSplit[i] === userGuess) {
-//				gameBlanks[i] = userGuess
-//				}
-//			}
-//		}
-//		else {
-//			guessesLeft --;
-//			guesses.push(userGuess);
-//		}
-//	}
+}

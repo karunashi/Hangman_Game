@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html>
-
+<!--Very useful for converting YouTube videos into other formats: https://www.onlinevideoconverter.com/ -->
 <head>
 <meta charset="UTF-8">
 <title>Hangman Game - Basic Version</title>
 <link href = "assets/css/reset.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link href = "assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-<p>Guesses Left: <span id="guesses-left"></span></p>
-<p>Guesses Made: <span id="guesses-made"></span></p>
-<p>Wins: <span id="win-counter"></span></p>
-<p>Losses: <span id="loss-counter"></span></p>
-<h3 id="word-blank"></h3>
+<body onload="loading()"> <!--Function call for loading screen-->
+<div id= "loader"></div> <!--Loading screen template/guide from w3schools, replaced animated CSS with fixed image-->
+<div class="animate-bottom" id="content" style="display:none;">
+<!--Header Area-->
+<div class = "col-lg-4"><img id = "error0-a" class="part1 img-responsive" src="assets/images/futuristic_05.gif"></div>
+<h1 class = "jumbotron text-center col-lg-4">Stop the War</h1>
+<div class = "col-lg-4"><img id = "error0-b" class="part1 img-responsive" src="assets/images/futuristic_06.gif"></div>
 
+<!--Video-oriented container-->
+<div class ="well col-lg-8 part3">
+		<iframe class="bgblock" id="bgblock" frameborder="0" height="700px" width="100%" src="assets/images/futuristic_02.gif">
+		</iframe>
+</div>
+
+<!--Important Game Interface-->
+<div class = "well col-lg-4">
+<audio autoplay="autoplay" id="incorrect" src=""></audio>
+<audio autoplay="autoplay" id="correct" src=""></audio>
+<audio autoplay="autoplay" id="end" src="assets/media/epic.mp3"></audio>
+<p id = "lives">Guesses Left: <span id="guesses-left"></span></p>
+<p id = "guesses">Guesses Made: <span id="guesses-made"></span></p>
+<p id = "wins">Wins: <span id="win-counter"></span></p>
+<p id = "losses">Losses: <span id="loss-counter"></span></p>
+<p>Nations Involved in the Conflict:</p>
+<h3><span id="word-blank"></span></h3>
+<p>"SOSHI": <span id ="input"> "Hello, I'm S.O.S.H.I., your personal navigation guidance system and assistant. We've been assigned to covertly navigate the exosphere of Earth and eliminate any and all hostiles. Failure of this mission could be catastrophic." </span></p>
+</div>
+<div class= "col-lg-4">
+	<img id = "error0-c" class="img-responsive part2" src="assets/images/futuristic_03.gif">
+</div>
+<div class= "col-lg-12">
+	<img id = "error1-a" class="img-responsive part4" src="assets/images/futuristic_07.gif">	
+</div>
+<div class= "col-lg-12">
+	<img id = "error1-b" class="img-responsive part4" src="assets/images/futuristic_04.gif">	
+</div>
+</div>
 <script src = "assets/javascript/game.js"></script>
 </body>
 

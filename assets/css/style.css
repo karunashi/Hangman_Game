@@ -1,0 +1,125 @@
+#content {
+  display: none;
+  text-align: center;
+}
+#loader {
+position: absolute;
+left: 0px;
+top: 0px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: url(../images/loading2.gif) no-repeat center center fixed;
+  background-size: 100% 100%;
+
+}
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 5s;
+  animation-name: animatebottom;
+  animation-duration: 5s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+.bgblock {
+  pointer-events: none;
+}
+/*To ensure nothing is able to click on the video if it's playing.*/
+body {
+     background: url(../images/futuristic_01.gif) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Orbitron', sans-serif;
+}
+h1, h5, h3, p, span, .jumbotron {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 25px;
+}
+
+span {
+	-webkit-animation: color_change 1s infinite alternate;
+	-moz-animation: color_change 1s infinite alternate;
+	-ms-animation: color_change 1s infinite alternate;
+	-o-animation: color_change 1s infinite alternate;
+	animation: color_change 1s infinite alternate;
+  }
+
+@-webkit-keyframes color_change {
+	from { color: lime; }
+	to { color: Fuchsia; }
+}
+@-moz-keyframes color_change {
+	from { color: lime; }
+	to { color: Fuchsia; }
+}
+@-ms-keyframes color_change {
+	from { color: lime; }
+	to { color: Fuchsia; }
+}
+@-o-keyframes color_change {
+	from { color: lime; }
+	to { color: Fuchsia; }
+}
+@keyframes color_change {
+	from { color: lime; }
+	to { color: Fuchsia; }
+}
+
+p {
+	-webkit-animation: cchange 1s infinite alternate;
+	-moz-animation: cchange 1s infinite alternate;
+	-ms-animation: cchange 1s infinite alternate;
+	-o-animation: cchange 1s infinite alternate;
+	animation: cchange 1s infinite alternate;
+}
+@-webkit-keyframes cchange {
+	from { color: MediumBlue; }
+	to { color: DeepPink; }
+}
+@-moz-keyframes cchange {
+	from { color: MediumBlue; }
+	to { color: DeepPink; }
+}
+@-ms-keyframes cchange {
+	from { color: MediumBlue; }
+	to { color: DeepPink; }
+}
+@-o-keyframes cchange {
+	from { color: MediumBlue; }
+	to { color: DeepPink; }
+}
+@keyframes cchange {
+	from { color: MediumBlue; }
+	to { color: DeepPink; }
+}
+
+
+.well, .jumbotron {
+   background-color: rgba(245, 245, 245, 0.35);
+}
+.jumbotron {
+	font-size: 50px;
+}
+.part1 {
+	height: 200px;
+	width: 100%;
+}
+.part2 {
+	width: 100%;
+	height: 365px;
+}
+.part4 {
+	width: 100%;
+}

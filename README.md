@@ -27,4 +27,4 @@
 
 ## I was surprised to learn many concepts not covered in class while working on this assignment as well. Topics such as Scope, I had learned while working on the assignment before it was thoroughly covered. I was very happy to learn that I've learned how to work with local and global variables in scopes effectively enough to make a functional Hangman game.
 
-
+#### Resource for CSS Colors: http://www.quackit.com/css/css_color_codes.cfm

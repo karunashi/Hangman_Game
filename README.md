@@ -1,4 +1,4 @@
-# Hangman_Game
+# Stop the War
 
 ## Live Link:
  - https://karunashi.github.io/Hangman_Game/
